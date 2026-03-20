@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── CAFÉ PRECIADO Brand Colors ── */
+  --color-obsidian:  #1A0802;   /* mahogany casi negro — sustituye negro frío */
+  --color-mahogany:  #3D1408;   /* color principal del logo — fondo premim */
+  --color-espresso:  #2C0E06;   /* texto oscuro cálido */
+  --color-copper:    #C8922A;   /* dorado de marca — el mismo del logo */
+  --color-crema:     #FAF3E6;   /* crema cálida — papel antiguo */
+  --color-latte:     #EDD5A8;   /* latte dorado */
+  --color-sienna:    #8B4513;   /* marrón medio, detalles */
+
+  --font-serif:  var(--font-playfair), serif;
+  --font-sans:   var(--font-inter), sans-serif;
+  --font-script: var(--font-dancing), cursive;   /* Dancing Script para "Escribiendo Sueños" */
+
+  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
+  --animate-slow-spin: slow-spin 40s linear infinite;
+
+  @keyframes slow-zoom {
+    from { transform: scale(1.05); }
+    to   { transform: scale(1.15); }
+  }
+
+  @keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-crema);
+    color: var(--color-espresso);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar premium — tono cobre dorado */
+  ::-webkit-scrollbar       { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--color-crema); }
+  ::-webkit-scrollbar-thumb { background-color: var(--color-copper); border-radius: 0; }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--color-mahogany); }
+
+  /* Utilidad para el font script */
+  .font-script {
+    font-family: var(--font-script);
+  }
+}
+
