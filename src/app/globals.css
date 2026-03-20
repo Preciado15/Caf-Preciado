@@ -1,36 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── CAFÉ PRECIADO Brand Colors ── */
-  --color-obsidian:  #1A0802;   /* mahogany casi negro — sustituye negro frío */
-  --color-mahogany:  #3D1408;   /* color principal del logo — fondo premim */
-  --color-espresso:  #2C0E06;   /* texto oscuro cálido */
-  --color-copper:    #C8922A;   /* dorado de marca — el mismo del logo */
-  --color-crema:     #FAF3E6;   /* crema cálida — papel antiguo */
-  --color-latte:     #EDD5A8;   /* latte dorado */
-  --color-sienna:    #8B4513;   /* marrón medio, detalles */
-
+  /* ── ULTRA PREMIUM LUXURY DESIGN SYSTEM ── */
+  
+  /* Monochromatic Base */
+  --color-black:        #000000;
+  --color-off-black:    #0A0A0A;
+  --color-white:        #FFFFFF;
+  --color-alabaster:    #FDFBF7; /* Extremely subtle warm white */
+  
+  /* Accents */
+  --color-bronze:       #A88950; /* Muted, elegant gold/bronze */
+  --color-charcoal:     #222222;
+  
+  /* Legacy mapping (keeping names but mapping to new luxury palette) */
+  --color-obsidian:     #000000;
+  --color-crema:        #FDFBF7;
+  --color-espresso:     #0A0A0A;
+  --color-copper:       #A88950;
+  --color-mahogany:     #0A0A0A;
+  --color-gold:         #A88950;
+  
+  /* Fonts */
   --font-serif:  var(--font-playfair), serif;
   --font-sans:   var(--font-inter), sans-serif;
-  --font-script: var(--font-dancing), cursive;   /* Dancing Script para "Escribiendo Sueños" */
-
-  --animate-slow-zoom: slow-zoom 20s ease-in-out infinite alternate;
-  --animate-slow-spin: slow-spin 40s linear infinite;
-
-  @keyframes slow-zoom {
-    from { transform: scale(1.05); }
-    to   { transform: scale(1.15); }
-  }
-
-  @keyframes slow-spin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
 }
 
 @layer base {
@@ -40,25 +33,80 @@
 
   html {
     scroll-behavior: smooth;
-  }
-
-  body {
-    background-color: var(--color-crema);
-    color: var(--color-espresso);
-    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Scrollbar premium — tono cobre dorado */
-  ::-webkit-scrollbar       { width: 5px; }
-  ::-webkit-scrollbar-track { background: var(--color-crema); }
-  ::-webkit-scrollbar-thumb { background-color: var(--color-copper); border-radius: 0; }
-  ::-webkit-scrollbar-thumb:hover { background-color: var(--color-mahogany); }
-
-  /* Utilidad para el font script */
-  .font-script {
-    font-family: var(--font-script);
+  body {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-family: var(--font-sans);
   }
+
+  /* Invisible/Minimalist Scrollbar */
+  ::-webkit-scrollbar       { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.2); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background-color: rgba(255,255,255,0.4); }
 }
 
+@layer utilities {
+  /* Ultra-minimalist buttons */
+  .btn-primary {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 0; /* Sharp corners for luxury fashion feel */
+    padding: 18px 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.65rem; /* ~10px */
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-white);
+  }
+  .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-white);
+  }
+
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--color-white);
+    border-radius: 0;
+    padding: 18px 40px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.65rem;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .btn-secondary:hover {
+    border-color: var(--color-white);
+    background-color: var(--color-white);
+    color: var(--color-black);
+  }
+
+  /* Refined typography utilities */
+  .text-luxury-title {
+    font-family: var(--font-serif);
+    font-weight: 300; /* Thin, elegant weight */
+    letter-spacing: -0.02em; /* Tight tracking for large serif */
+    line-height: 1.05;
+  }
+
+  .text-luxury-label {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0.25em; /* Extremely wide tracking for tiny uppercase */
+    text-transform: uppercase;
+    font-size: 0.55rem;
+  }
+}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter, Dancing_Script } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -12,14 +12,6 @@ const playfair = Playfair_Display({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  display: "swap",
-  preload: false,
-});
-
-const dancing = Dancing_Script({
-  subsets: ["latin"],
-  weight: ["600"],
-  variable: "--font-dancing",
   display: "swap",
   preload: false,
 });
@@ -77,7 +69,7 @@ export default function RootLayout({
 
   return (
     <html lang="es" className="scroll-smooth">
-      <body className={`${playfair.variable} ${inter.variable} ${dancing.variable} antialiased selection:bg-copper selection:text-white`}>
+      <body className={`${playfair.variable} ${inter.variable} antialiased selection:bg-gold selection:text-black`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
